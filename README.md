@@ -37,4 +37,4 @@ docker-compose up -d
 
 ## Criar o banco de dados
 
-$ docker-compose run web rails db:create
+$ docker-compose run app rails db:create
