@@ -32,7 +32,7 @@ gem 'devise'
 # Engine html
 gem 'haml'
 gem 'haml-rails'
-# gem "erb2haml", :group=> development
+
 
 # Paginação
 # gem 'kaminari'
@@ -61,6 +61,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'mailcatcher'
+  gem 'erb2haml'
 
 end
 
