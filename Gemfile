@@ -17,6 +17,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 #CSS
 gem 'bootstrap'
 gem "mini_portile2"
+gem 'nokogiri', '~> 1.15', '>= 1.15.2'
 
 # Java Script
 gem 'jquery-rails'
@@ -32,7 +33,7 @@ gem 'devise'
 # Engine html
 gem 'haml'
 gem 'haml-rails'
-
+gem 'html2haml'
 
 # Paginação
 # gem 'kaminari'

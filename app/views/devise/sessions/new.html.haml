@@ -1,20 +1,60 @@
-<h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+.row
+  .col-md-6.mx-auto.p-0
+    .card
+      .login-box
+        .login-snip
+          %input#tab-1.sign-in{checked: "checked", name: "tab", type: "radio"}/
+          %label.tab{for: "tab-1"} Login
+          %input#tab-2.sign-up{name: "tab", type: "radio"}/
+          %label.tab{for: "tab-2"} Sign Up
+          .login-space
+            .login
+              .group
+                %label.label{for: "user"} Username
+                %input#user.input{placeholder: "Enter your username", type: "text"}/
+              .group
+                %label.label{for: "pass"} Password
+                %input#pass.input{"data-type" => "password", placeholder: "Enter your password", type: "password"}/
+              .group
+                %input#check.check{checked: "checked", type: "checkbox"}/
+                %label{for: "check"}
+                  %span.icon
+                  Keep me Signed in
+              .group
+                %input.button{type: "submit", value: "Sign In"}/
+              .hr
+              .foot
+                %a{href: "#"} Forgot Password?
+            .sign-up-form
+              .group
+                %label.label{for: "user"} Username
+                %input#user.input{placeholder: "Create your Username", type: "text"}/
+              .group
+                %label.label{for: "pass"} Password
+                %input#pass.input{"data-type" => "password", placeholder: "Create your password", type: "password"}/
+              .group
+                %label.label{for: "pass"} Repeat Password
+                %input#pass.input{"data-type" => "password", placeholder: "Repeat your password", type: "password"}/
+              .group
+                %label.label{for: "pass"} Email Address
+                %input#pass.input{placeholder: "Enter your email address", type: "text"}/
+              .group
+                %input.button{type: "submit", value: "Sign Up"}/
+              .hr
+              .foot
+                %label{for: "tab-1"} Already Member?
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+%h2 Log in
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-inputs
+    = f.input :email,required: false,autofocus: true,input_html: { autocomplete: "email" } |
+    = f.input :password,                               |
+      required: false,                                 |
+      input_html: { autocomplete: "current-password" } |
+    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+  .form-actions
+    = f.button :submit, "Log in"
+= render "devise/shared/links"
