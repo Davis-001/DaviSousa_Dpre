@@ -1,56 +1,28 @@
-
-.row
-  .col-md-6.mx-auto.p-0
-    .card
-      .login-box
-        .login-snip
-          %input#tab-1.sign-in{checked: "checked", name: "tab", type: "radio"}/
-          %label.tab{for: "tab-1"} Login
-          %input#tab-2.sign-up{name: "tab", type: "radio"}/
-          %label.tab{for: "tab-2"} Sign Up
-          .login-space
-            .login
-              .group
-                %label.label{for: "user"} Username
-                %input#user.input{placeholder: "Enter your username", type: "text"}/
-              .group
-                %label.label{for: "pass"} Password
-                %input#pass.input{"data-type" => "password", placeholder: "Enter your password", type: "password"}/
-              .group
-                %input#check.check{checked: "checked", type: "checkbox"}/
-                %label{for: "check"}
-                  %span.icon
-                  Keep me Signed in
-              .group
-                %input.button{type: "submit", value: "Sign In"}/
-              .hr
-              .foot
-                %a{href: "#"} Forgot Password?
-            .sign-up-form
-              .group
-                %label.label{for: "user"} Username
-                %input#user.input{placeholder: "Create your Username", type: "text"}/
-              .group
-                %label.label{for: "pass"} Password
-                %input#pass.input{"data-type" => "password", placeholder: "Create your password", type: "password"}/
-              .group
-                %label.label{for: "pass"} Repeat Password
-                %input#pass.input{"data-type" => "password", placeholder: "Repeat your password", type: "password"}/
-              .group
-                %label.label{for: "pass"} Email Address
-                %input#pass.input{placeholder: "Enter your email address", type: "text"}/
-              .group
-                %input.button{type: "submit", value: "Sign Up"}/
-              .hr
-              .foot
-                %label{for: "tab-1"} Already Member?
+%link#bootstrap-css{href: "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", rel: "stylesheet"}/
+%script{src: "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"}
+%script{src: "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+/ ---- Include the above in your HEAD tag --------
+.wrapper.fadeInDown
+  #formContent
+    / Tabs Titles
+    / Icon
+    .fadeIn.first
+      %img#icon{alt: "User Icon", src: "http://danielzawadzki.com/codepen/01/icon.svg"}/
+    / Login Form
+    %form
+      %input#login.fadeIn.second{name: "login", placeholder: "login", type: "text"}/
+      %input#password.fadeIn.third{name: "login", placeholder: "password", type: "text"}/
+      %input.fadeIn.fourth{type: "submit", value: "Log In"}/
+    / Remind Passowrd
+    #formFooter
+      %a.underlineHover{href: "#"} Forgot Password?
 
 
 
 %h2 Log in
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .form-inputs
-    = f.input :email,required: false,autofocus: true,input_html: { autocomplete: "email" } |
+    = f.input :email,required: false,autofocus: true,input_html: { autocomplete: "email" } 
     = f.input :password,                               |
       required: false,                                 |
       input_html: { autocomplete: "current-password" } |
